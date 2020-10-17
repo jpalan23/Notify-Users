@@ -50,6 +50,7 @@
     import {
         inputFormMixin
     } from '../assets/js/inputFormMixins';
+    import { subscribeService } from '../service/UserService';
     export default {
         name: "LoginForm",
         mixins: [inputFormMixin],
@@ -78,18 +79,28 @@
                 }
                 return true
             },
-            onSubmit() {
+            onSubmit: async function() {
                 if (!this.varifyInputs()) {
                     this.errorInForm = true;
                     return;
                 }
                 this.errorMsg = ''
                 this.errorInForm = false;
-                console.log(this.username);
-                console.log(this.email);
-                console.log(this.phoneNumber);
-
-                // Need to save it on backend
+                const userObj = {
+                    name:this.username,
+                    email:this.email,
+                    phoneNumber:this.phoneNumber
+                }
+                await subscribeService(userObj).then(res => {
+                    if(res && res.status && res.status == 'error'){
+                        this.errorMsg = res.msg;
+                        this.errorInForm = true;
+                    }else{
+                        this.errorMsg = "Thank you for registering";
+                        this.errorInForm= true;
+                    }
+                })
+                
             },
         }
     }
@@ -101,6 +112,7 @@
         justify-content: flex-start;
         align-items: center;
         text-align: center;
+        z-index: 25;
 
         @media screen and (max-width: 1000px){
             justify-content: center;
@@ -244,7 +256,7 @@
             .error-msg {
                 color: var(--secondary-color);
                 font-weight: 600;
-                font-size: 1.4rem;
+                font-size: 0.6rem;
             }
 
         }

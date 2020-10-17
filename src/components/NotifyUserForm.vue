@@ -1,7 +1,7 @@
 <template>
   <div class="login-content">
         <form class="user-form" v-on:submit.prevent="onSubmit">
-            <div class="top-right-icon" @click="changeRouteTo('logout')" >
+            <div class="top-right-icon" @click="logout()" >
                 <i class="fas fa-sign-out-alt"></i>
             </div>
             <img src="@/assets/img/adminImage.png" alt="admin-image" />
@@ -30,6 +30,7 @@
 import {
         inputFormMixin
     } from '../assets/js/inputFormMixins';
+import * as auth from '../service/AuthService';
 export default {
     name:'NotifyUserForm',
     mixins: [inputFormMixin],
@@ -50,6 +51,10 @@ export default {
             this.$router.push({
                 name: 'notify-user-view'
             });
+        },
+        logout(){
+            auth.logout();
+            this.changeRouteTo('logout')
         }
     },
 }

@@ -40,6 +40,7 @@
     import {
         inputFormMixin
     } from '../assets/js/inputFormMixins';
+    import { login } from '../service/AuthService';
 
     export default {
         name: 'AdminForm',
@@ -63,16 +64,27 @@
                 }
                 return true
             },
-            onSubmit() {
+            onSubmit: async function() {
                 if (!this.varifyInputs()) {
                     this.errorInForm = true;
                     return;
                 }
                 this.errorMsg = ''
                 this.errorInForm = false;
-                this.$router.push({
-                    name: 'notify-user-view'
-                });
+                const adminObj = {
+                    email: this.email,
+                    password: this.password
+                }
+                await login(adminObj).then(res =>{
+                    if(res && res.status == 'error'){
+                        this.errorMsg = res.msg;
+                        this.errorInForm = true;
+                    }else{
+                        this.$router.push({
+                            name: 'notify-user-view'
+                        });
+                    }
+                })
             }
         },
 
