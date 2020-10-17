@@ -102,16 +102,30 @@
         align-items: center;
         text-align: center;
 
+        @media screen and (max-width: 1000px){
+            justify-content: center;
+        }
+
         .user-form {
             width: 400px;
             display: block;
             position: relative;
+
+             @media screen and (max-width: 700px){
+                width: 100%;
+                padding: 10px;
+            }
+
 
             .top-right-icon{
                 display: block;
                 position: absolute;
                 top: 0;
                 right: 0;
+
+                @media screen and (max-width: 700px){
+                    right: 20px;
+                }
                 
                 i{
                     font-size: 24px;

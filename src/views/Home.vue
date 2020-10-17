@@ -25,6 +25,19 @@ export default {
     grid-gap: 7rem;
     padding: 0 2rem;
 
+    @media screen and (max-width: 1050px){
+        grid-gap: 1rem;
+    }
+
+    @media screen and (max-width: 1000px){
+      grid-template-columns: 1fr;
+      grid-gap: 0rem;
+    }
+
+    @media screen and (max-width: 700px){
+      padding: 0;
+    }
+
 }
 
 .left-img{
@@ -35,5 +48,9 @@ export default {
   img{
       width: 500px; 
   }
+
+  @media screen and (max-width: 1000px){
+        display: none;
+    }
 }
 </style>
