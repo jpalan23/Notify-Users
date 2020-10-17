@@ -1,20 +1,27 @@
 import express from 'express';
 import 'babel-polyfill';
 const app = express();
-import userRouter from './routes/userRoute';
 
+import userRouter from './routes/userRoute';
+import adminRouter from './routes/adminRoute';
 
 import { setEnvironment } from './config/env';
 
-// import env from './env';
 
 setEnvironment(app);
 // Mounting the routes
 app.use('/api',userRouter);
-
+app.use('/api',adminRouter);
 
 app.get('/', (req, res) => {
-
+  if (!process.env.NODE_ENV || process.env.NODE_ENV.toString().trim() !== 'production') {
+      return res.send(
+          'Running server in development mode.'
+      );
+  } else {
+      // Returns the main index file in production environment
+      return res.sendFile('index.html', { root: __dirname + '/../dist/' });
+  }
 })
 
 

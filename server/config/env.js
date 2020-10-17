@@ -24,7 +24,6 @@ function setDevEnv(app) {
     process.env.NODE_ENV = 'development';
     app.use(express.urlencoded({ extended: false }));
     app.use(express.json());
-    //app.use(bodyParser.json()); // Allows parsing JSON from the client
     app.use(cors()); // Enable Cross Origin Requests, since Vue.JS is on a different origin
     process.env.DATABASE_URL = 'postgres://wldvjjox:VE_EWjdzEyM8ctAplVJTXxq9yAU_R0xJ@raja.db.elephantsql.com:5432/wldvjjox';
     process.env.TEST_DATABASE_URL = 'postgresql://jaypalan:@localhost:5432/jaypalan';
@@ -42,7 +41,6 @@ function setProdEnv(app) {
     process.env.NODE_ENV = 'production';
     process.env.DATABASE_URL = 'postgres://wldvjjox:VE_EWjdzEyM8ctAplVJTXxq9yAU_R0xJ@raja.db.elephantsql.com:5432/wldvjjox';
     process.env.TOKEN_SECRET = '9f4d50bfa6b2450a9ec766fc5104948e';
-    //app.use(bodyParser.json());
     app.use(express.urlencoded({ extended: false }));
     app.use(express.json());
 
