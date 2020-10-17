@@ -8,7 +8,7 @@
             <h2>Administrator</h2>
             <div class="form-group">
                 <div class="icon">
-                    <i class="fas fa-user"></i>
+                    <i class="fas fa-envelope"></i>
                 </div>
                 <div class="form-input">
                     <h5>Email</h5>
@@ -18,12 +18,12 @@
             </div>
             <div class="form-group">
                 <div class="icon">
-                    <i class="fas fa-envelope"></i>
+                    <i class="fas fa-key"></i>
                 </div>
                 <div class="form-input">
                     <h5>Password</h5>
                     <input v-model="password" @focus="addClassToParentDiv($event)" @blur="removeClassFromDiv($event)"
-                        type="text" />
+                        type="password" />
                 </div>
             </div>
             <div class="">
@@ -73,7 +73,6 @@
                 this.$router.push({
                     name: 'notify-user-view'
                 });
-
             }
         },
 

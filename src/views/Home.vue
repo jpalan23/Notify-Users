@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div class="notify-left-img">
+    <div class="left-img">
       <img src="@/assets/img/Subscriber.png" alt="subscribe-img"/>
     </div>
     <LoginForm/>
@@ -25,14 +25,15 @@ export default {
     grid-gap: 7rem;
     padding: 0 2rem;
 
-    .notify-left-img{
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
+}
 
-      img{
-          width: 500px; 
-      }
-    }
+.left-img{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  img{
+      width: 500px; 
+  }
 }
 </style>

@@ -79,11 +79,6 @@
                 return true
             },
             onSubmit() {
-                if (this.username == '' || this.email == '' || this.phoneNumber == '') {
-                    this.errorMsg = "All fields are required!";
-                    this.errorInForm = true;
-                    return;
-                }
                 if (!this.varifyInputs()) {
                     this.errorInForm = true;
                     return;

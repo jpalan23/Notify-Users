@@ -1,6 +1,6 @@
 <template>
     <div class="admin-view">
-        <div class="admin-left-img">
+        <div class="left-img">
             <img src="@/assets/img/loginImage.png" alt="subscribe-img" />
         </div>
         <AdminForm />
@@ -25,15 +25,5 @@ export default {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 7rem;
     padding: 0 2rem;
-
-    .admin-left-img{
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-
-      img{
-          width: 500px; 
-      }
-    }
 }
 </style>

@@ -14,7 +14,7 @@ export const inputFormMixin ={
             let newRoutName = '';
             if(newRoute === 'admin'){
                 newRoutName = 'admin-view';
-            }else if(newRoute === 'subscribe'){
+            }else if(newRoute === 'subscribe' || newRoute === 'logout'){
                 newRoutName = 'home'
             }
             this.$router.push({
@@ -40,6 +40,9 @@ export const inputFormMixin ={
             /*eslint-enable */
         },
         phoneNumberIsValid (phoneNumber){
+            if(!phoneNumber){
+                return false;
+            }
            return phoneNumber.match(/\d/g).length===10
         },
         addClassToParentDiv($event){
