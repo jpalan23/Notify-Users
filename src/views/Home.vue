@@ -1,20 +1,18 @@
 <template>
   <div class="home">
     <div class="notify-left-img">
-      <img src="@/assets/img/NotifyMe.png" alt="notify-img"/>
+      <img src="@/assets/img/Subscriber.png" alt="subscribe-img"/>
     </div>
-    
+    <LoginForm/>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
-
+import LoginForm from '@/components/LoginForm'
 export default {
   name: 'Home',
   components: {
-
+    LoginForm
   }
 }
 </script>
@@ -31,6 +29,10 @@ export default {
       display: flex;
       justify-content: flex-end;
       align-items: center;
+
+      img{
+          width: 500px; 
+      }
     }
 }
 </style>
