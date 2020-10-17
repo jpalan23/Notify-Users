@@ -10,6 +10,17 @@ export const inputFormMixin ={
         }
     },
     methods: {
+        changeRouteTo(newRoute){
+            let newRoutName = '';
+            if(newRoute === 'admin'){
+                newRoutName = 'admin-view';
+            }else if(newRoute === 'subscribe'){
+                newRoutName = 'home'
+            }
+            this.$router.push({
+                name: newRoutName
+            });
+        },
         usernameIsValid(username){
             if(username.length <= 3 || username.length > 25 ){
                 return false;

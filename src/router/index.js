@@ -4,19 +4,35 @@ import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
+const adminLoggedIn = true;
+
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: 'home',
     component: Home
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/admin-view',
+    name: 'admin-view',
+    component: () => import('../views/AdminView.vue')
+  },
+  {
+    path: '/notify-user',
+    name: 'notify-user-view',
+    component: () => import('../views/NotifyUserView.vue'),
+    beforeRouteEnter (to, from, next) {
+      if(adminLoggedIn){
+        next()
+      }else{
+        next('/');
+      }
+    }
+    
+  },
+  {
+    path:'*',
+    redirect:'/'
   }
 ]
 
