@@ -32,7 +32,7 @@ const insertAdminCredentials = () => {
     console.log(password);
 
     const insertAdminCreateQuery = `INSERT INTO users 
-    (user_id, email, name, password, phone_number) VALUES (0,'admin@p2a.com', 'admin','${password}','0')`;
+    (user_id, email, name, password, phone_number) VALUES (0,'admin@p2a.com', 'admin','${password}','5717788434')`;
   
     pool.query(insertAdminCreateQuery)
       .then((res) => {

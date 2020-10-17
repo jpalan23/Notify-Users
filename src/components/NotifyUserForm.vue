@@ -40,7 +40,7 @@ export default {
         }
     },
     methods: {
-        onSubmit() {
+        onSubmit:async function() {
             if (this.msg.replace(/\s/g, '').length < 6 || this.msg.length > 40) {
                 this.errorMsg = 'Message length should be greater than 6 and less than 40';
                 this.errorInForm = true;
@@ -48,8 +48,15 @@ export default {
             }
             this.errorMsg = ''
             this.errorInForm = false;
-            this.$router.push({
-                name: 'notify-user-view'
+            const msgObj ={message:this.msg};
+            await auth.sendMsg(msgObj).then(res =>{
+                if(res && res.status == 'error'){
+                    this.errorMsg = res.msg;
+                    this.errorInForm = true;
+                }else{
+                    this.errorMsg = "Message sent successfully";
+                    this.errorInForm = true;
+                }
             });
         },
         logout(){

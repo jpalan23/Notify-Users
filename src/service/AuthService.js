@@ -28,6 +28,16 @@ export function login(admin) {
         });
 }
 
+export function sendMsg(msg) {
+    return http().post('/admin/notify', msg)
+        .then(res => {
+            return res;
+        }).catch(err =>{
+            console.error(err);
+            return {status:'error',msg:"Sending Msg"};
+        });
+}
+
 export function logout() {
     localStorage.clear();
     store.dispatch('authenticate');

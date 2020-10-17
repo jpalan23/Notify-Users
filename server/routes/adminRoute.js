@@ -1,9 +1,6 @@
 import { Router } from 'express';
-import {signInAdmin} from '../controllers/adminControllers';
+import {signInAdmin, notifyUsers} from '../controllers/adminControllers';
 import {authRequired}from '../middlewares/auth';
-const controller = (req, res,next) =>{
-    res.send('holllllla');
-}
 
 const router = Router();
 
@@ -13,7 +10,7 @@ router
 
 router
     .route('/admin/notify')
-    .post(authRequired,controller);
+    .post(authRequired,notifyUsers);
 
     
 export default router;
