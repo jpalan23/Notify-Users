@@ -26,18 +26,16 @@ app.get('/', (req, res) => {
 
 
 app.use((req, res, next) => {
-    const error = new Error('Route Not Found');
-    error.status = 404;
-    return res.status(error.status).send({
-        error: {
-          message: error.message
-        }
-      });
+    // const error = new Error('Route Not Found');
+    // error.status = 404;
+
+    // WRONG Routes
+    return res.sendFile('index.html', { root: __dirname + '/../dist/' });
 })
 
 
 
-const port = process.env.PORT|| 7000;
+const port = process.env.PORT|| 5000;
 
 app.listen(port, () =>
   // eslint-disable-next-line no-console

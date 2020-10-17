@@ -7,7 +7,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     adminLoggedIn:true,
-    apiUrl: `http://localhost:5000/api`,
+    apiUrl: `${window.location.protocol}//${window.location.hostname}:5000/api`,
     email:null
   },
   mutations: {

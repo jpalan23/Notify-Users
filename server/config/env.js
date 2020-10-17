@@ -46,6 +46,7 @@ function setProdEnv(app) {
     process.env.TWILIO_SID='AC05f7ad1323f1bf4f814963d4fc90a4e3';
     process.env.TWILIO_AUTH='bb9c476029831e12a7924753c532ae4d';
     process.env.TWILIO_PHONE_NUMBER='+12319946588';
+    process.env.PORT=5000;
     app.use(express.urlencoded({ extended: false }));
     app.use(express.json());
 
