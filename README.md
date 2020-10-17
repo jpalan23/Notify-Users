@@ -1,24 +1,38 @@
 # notify-users
 
+This project allows users to subscibe for notifications and administrator send messages to all of them. 
+The UI of the project is different for Desktop, Ipad and Mobile.
+
+
+Technologies Used:
+Frontend:Vue,SASS,HTML
+Backend:Node,Express
+SQL: Postgres
 ## Project setup
+
+### For start:
 ```
-npm install
+npm run build
+
+npm run start
 ```
 
-### Compiles and hot-reloads for development
+### For Database Setup 
+```
+npm run setup
+
+npm run initialize-db
+
+npm run reset-db
+```
+
+### For serving Frontend only
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+### For serving Backend only
 
-### Lints and fixes files
 ```
-npm run lint
+npm run start-server
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
